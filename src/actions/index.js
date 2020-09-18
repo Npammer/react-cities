@@ -1,6 +1,6 @@
 import cities from "../../data/cities";
 
-function setCities() {
+export default function setCities() {
   // Todo: API call
   return {
     type: "SET_CITIES",
@@ -8,4 +8,9 @@ function setCities() {
   };
 }
 
-export default setCities;
+export function setActiveCity(city) {
+  return {
+    type: "SET_ACTIVECITY",
+    payload: city,
+  };
+}

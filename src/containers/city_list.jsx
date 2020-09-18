@@ -24,17 +24,18 @@ class CityList extends Component {
         address={city.address}
         slug={city.slug}
         key={city.name}
+        city={city}
       />
     ));
   };
 
   render() {
-    return <div className="cities">{this.renderList()}</div>;
+    return <ul className="cities">{this.renderList()}</ul>;
   }
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ setCities: setCities }, dispatch);
+  return bindActionCreators({ setCities }, dispatch);
 }
 
 function mapReduxStateToProps(reduxState) {

@@ -1,4 +1,12 @@
+// React
 import React, { Component } from "react";
+
+// Redux
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+
+// Actions
+import { setActiveCity } from "../actions/index";
 /* eslint-disable arrow-parens */
 
 class City extends Component {
@@ -6,9 +14,21 @@ class City extends Component {
     super(props);
     this.state = {};
   }
+
   render() {
-    return <ul className="list-group-item">{this.props.name}</ul>;
+    return (
+      <li
+        className="list-group-item"
+        onClick={() => props.setActiveCity(props.city)}
+      >
+        {this.props.name}
+      </li>
+    );
   }
 }
 
-export default City;
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ setActiveCity }, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(City);
