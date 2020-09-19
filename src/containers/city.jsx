@@ -6,7 +6,7 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
 // Actions
-import { setActiveCity } from "../actions/index";
+import { selectCity } from "../actions/index";
 /* eslint-disable arrow-parens */
 
 class City extends Component {
@@ -16,19 +16,22 @@ class City extends Component {
   }
 
   render() {
+    const { name, city } = this.props;
+
     return (
+      // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
       <li
         className="list-group-item"
-        onClick={() => props.setActiveCity(props.city)}
+        onClick={() => this.props.selectCity(city)}
       >
-        {this.props.name}
+        {name}
       </li>
     );
   }
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ setActiveCity }, dispatch);
+  return bindActionCreators({ selectCity }, dispatch);
 }
 
 export default connect(null, mapDispatchToProps)(City);

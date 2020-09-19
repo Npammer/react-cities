@@ -8,7 +8,7 @@ export default function setCities() {
   };
 }
 
-export function setActiveCity(city) {
+export function selectCity(city) {
   return {
     type: "SET_ACTIVECITY",
     payload: city,

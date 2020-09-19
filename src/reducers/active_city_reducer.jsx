@@ -1,7 +1,4 @@
-function activeCityReducer(state, action) {
-  if (state === undefined) {
-    return "";
-  }
+function activeCityReducer(state = null, action) {
   switch (action.type) {
     case "SET_ACTIVECITY":
       return action.payload;
